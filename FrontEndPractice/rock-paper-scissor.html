@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rock paper Scissors</title>
+</head>
+<body>
+    <h1>Rock Paper Scissors</h1>
+    <button onclick="playGame('rock')">Rock</button>
+    <button onclick="playGame('paper')">Paper</button>
+    <button onclick="playGame('scissor')">Scissors</button>
+
+    <script>
+        function playGame(playerMove) {
+
+        const computermove = pickcomputermove();
+        let result = '';
+
+        if (playerMove === 'scissor') {
+                if (computermove === 'Rock') {
+                result = 'You Loose';
+            } else if (computermove === 'Paper') {
+                result = 'You Win';
+            } else if (computermove === 'Scissors') {
+                result = 'Tie';
+            }
+        }
+        if (playerMove === 'paper') {
+                if (computermove === 'Rock') {
+                result = 'You Win';
+            } else if (computermove === 'Paper') {
+                result = 'Tie';
+            } else if (computermove === 'Scissors') {
+                result = 'You Loose';
+            } 
+        }
+        if (playerMove === 'rock') {
+                if (computermove === 'Rock') {
+                result = 'Tie';
+            } else if (computermove === 'Paper') {
+                result = 'You Loose';
+            } else if (computermove === 'Scissors') {
+                result = 'You Win';
+            }
+        }
+
+        alert(`You move ${playerMove}, Computer move ${computermove}. ${result}`);
+
+        }
+
+        function pickcomputermove() {
+            const RandomNo = Math.random();
+            let computermove = '';
+
+            if (RandomNo >= 0 && RandomNo < 1/3) {
+                computermove = 'Rock';
+            } else if (RandomNo >= 1/3 && RandomNo < 2/3) {
+                computermove = 'Paper';
+            } else if (RandomNo >= 2/3 && RandomNo < 1) {
+                computermove = 'Scissors';
+            }  
+
+            return computermove;
+        }
+    </script>
+</body>
+</html>

@@ -11,8 +11,8 @@
 .column {
     margin: auto;
     float: top;
-    width: 40%;
-    height: 33.3%;
+    width: 30%;
+    height: 25%;
     padding: 40px;
     background: #ece6e6;
 }
@@ -35,13 +35,14 @@
 /* Display the columns below each other instead of side by side on small screens */
 @media screen and (max-width: 650px) {
   .column {
-    width: 50%;
+    width: 100%;
     display: block;
   }
 }
 
 /* Some padding inside the container */
 .container {
+  font-size: 90%;
     border-radius: 5px;
     background: rgb(206, 176, 151);
     padding:20px;
@@ -64,13 +65,12 @@
 }
 
 .title {
-    font-size: 150%;
     color: rgb(89, 90, 88);
 }
 
 .button {
     border: none;
-    font-size: 125%;
+    font-size: 100%;
     outline: 0;
     display: inline-block;
     padding: 8px;
@@ -86,13 +86,18 @@
     background-color: #555;
 }
 img{
+    /* height: 350px;
+    width: 200px; */
     border-radius: 5px;  
 }
 img:hover{
     box-shadow: 0 4px 8px 0 #424242;
 }
 #name{
-    font-size: 250%;
+    font-size: 150%;
+}
+#voldemort {
+    height: 350px;
 }
 
 </style>
@@ -187,7 +192,7 @@ img:hover{
           <div class="column">
             <div class="card">
               <a href="https://en.wikipedia.org/wiki/Lord_Voldemort" target="_blank">
-              <img src="https://i.pinimg.com/originals/3f/52/e7/3f52e76d156cf301b46a1244730bdd84.png" alt="Voldemort" style="width:100%">
+              <img id="voldemort" src="https://i.pinimg.com/originals/3f/52/e7/3f52e76d156cf301b46a1244730bdd84.png" alt="Voldemort" style="width:100%">
               </a>
               <div class="container">
                 <h2 id="name">Tom Marvolo Riddle</h2>
