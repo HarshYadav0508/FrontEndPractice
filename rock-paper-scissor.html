@@ -4,13 +4,88 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Rock paper Scissors</title>
+    
+    <style>
+        @media (max-width: 768px) {
+            body {
+                padding: 10px 10px;
+                font-family: Arial, Helvetica, sans-serif;
+                background-color: rgb(41, 41, 41);
+                color: white;
+                font-weight: 700;
+            }
+            .move-container {
+                display: flex;
+                justify-content: space-around;
+            }
+            .container {
+                text-align: center;
+            }
+            h1 {
+                font-size: 100%;
+                font-weight: bold;
+            }
+            .move-icon {
+                width: 80%;
+                max-width: 100%;
+                height: auto;
+            }
+        }
+        body {
+            font-family: Arial, Helvetica, sans-serif;
+            background-color: rgb(41, 41, 41);
+            color: white;
+        }
+        .move-container {
+            margin-top: 10%;
+            display: flex;
+            justify-content: space-around;
+            margin-bottom: 20px;
+        }
+        .move-container button {
+            width: 50%;
+            height: 100%;
+            border-radius: 100%;
+            background-color: transparent;
+            border: 5px solid white;
+            margin: 10px;
+            padding: 10px 5px;
+        }
+        .move-icon-2 {
+            width: 10%;
+        }
+        .container {
+            text-align: center;
+        }
+        h1 {
+            font-size: 150%;
+            font-weight: bold;
+        }
+        .result {
+            font-size: 120%;
+            font-weight: bold;
+        }
+        .reset-score {
+            padding: 1% .5%;
+            border-radius: 2%;
+            border: none;
+        }
+        
+    </style>
 </head>
 <body>
-    <h1>Rock Paper Scissors</h1>
-    <button onclick="playGame('Rock')">Rock</button>
-    <button onclick="playGame('Paper')">Paper</button>
-    <button onclick="playGame('Scissor')">Scissors</button>
-    <button onclick="resetScore()">Reset Score</button>
+    <div class="container">
+        <h1>Rock Paper Scissors</h1>
+        <div class="move-container">
+            <button onclick="playGame('Rock')"><img src="Images/Rock-emoji.png" alt="rock" class="move-icon"></button>
+            <button onclick="playGame('Paper')"><img src="Images/Paper-emoji.png" alt="paper" class="move-icon"></button>
+            <button onclick="playGame('Scissors')"><img src="Images/Scissors-emoji.png" alt="scissors" class="move-icon"></button>
+        </div>
+        <div class="js-result result" style="margin-bottom: 50px;"></div>
+        <div class="moves" style="margin-bottom: 20px;"></div>
+        <div class="js-score" style="margin-bottom: 100px;"></div>
+        <button onclick="resetScore()" class="reset-score">Reset Score</button>
+    </div>
 
     <script>
         let score = JSON.parse(localStorage.getItem('score')) || {
@@ -18,19 +93,22 @@
                 Losses: 0,
                 Tie: 0
             };
-        
+            
+        updateScoreElement();
+
         function resetScore () {
             score.Wins = 0;
             score.Losses = 0;
             score.Tie = 0;
             localStorage.removeItem('score');
+            updateScoreElement();
         }
         function playGame(playerMove) {
 
             const computermove = pickcomputermove();
             let result = '';
 
-            if (playerMove === 'Scissor') {
+            if (playerMove === 'Scissors') {
                     if (computermove === 'Rock') {
                     result = 'You Lose';
                 } else if (computermove === 'Paper') {
@@ -68,9 +146,18 @@
 
             localStorage.setItem('score', JSON.stringify(score));
 
-            alert(`Your move ${playerMove}, Computer move  ${computermove}.   ${result}
-            Wins: ${score.Wins} Losses: ${score.Losses} Tie: ${score.Tie}` );
+            document.querySelector('.js-result').innerHTML = result;
+            document.querySelector('.moves').innerHTML = `You 
+            <img src="Images/${playerMove}-emoji.png" class="move-icon-2">  
+            <img src="Images/${computermove}-emoji.png" class="move-icon-2">
+            Computer`;
+            updateScoreElement();
 
+        }
+
+
+        function updateScoreElement () {
+            document.querySelector('.js-score').innerHTML = `Wins: ${score.Wins} Losses: ${score.Losses} Tie: ${score.Tie}`;
         }
 
         function pickcomputermove() {
