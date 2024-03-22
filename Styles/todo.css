@@ -11,7 +11,7 @@ body {
 .todo-grid {
     margin-top: 2%;
     display: grid;
-    grid-template-columns: 50% 25% 20%;
+    grid-template-columns: 50% 15% 20%;
     gap: 2%;
     row-gap: 5px;
     align-items: center;
@@ -19,7 +19,7 @@ body {
 
 .input-field {
     display: grid;
-    grid-template-columns: 50% 25% 20%;
+    grid-template-columns: 50% 15% 20%;
     gap: 2%;
 }
 
