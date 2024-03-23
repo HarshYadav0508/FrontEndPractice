@@ -13,6 +13,23 @@ score.Tie = 0;
 localStorage.removeItem('score');
 updateScoreElement();
 }
+
+let isAutoplaying = false;
+let intervalID;
+
+function autoPlay() {
+    if (!isAutoplaying) {
+        intervalID = setInterval(function() {
+        const playerMove = pickcomputermove();
+        playGame(playerMove);
+        }, 1000);
+        isAutoplaying = true;
+    } else {
+        clearInterval(intervalID);
+        isAutoplaying = false;
+    }
+}
+
 function playGame(playerMove) {
 
 const computermove = pickcomputermove();
