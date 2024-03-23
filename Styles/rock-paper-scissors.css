@@ -10,6 +10,15 @@
         display: flex;
         justify-content: space-around;
     }
+    .move-container button {
+        width: 50%;
+        height: 100%;
+        border-radius: 100%;
+        background-color: transparent;
+        border: 5px solid white;
+        margin: 10px;
+        padding: 10px 5px;
+    }
     .container {
         text-align: center;
     }
@@ -23,6 +32,18 @@
         height: auto;
     }
 }
+
+@media (min-width: 768px) {
+    .move-container button {
+        width: 20%;
+        height: 100%;
+        border-radius: 100%;
+        background-color: transparent;
+        border: 5px solid white;
+        padding: 20px;
+    }  
+}
+
 body {
     font-family: Arial, Helvetica, sans-serif;
     background-color: rgb(41, 41, 41);
@@ -34,15 +55,7 @@ body {
     justify-content: space-around;
     margin-bottom: 20px;
 }
-.move-container button {
-    width: 50%;
-    height: 100%;
-    border-radius: 100%;
-    background-color: transparent;
-    border: 5px solid white;
-    margin: 10px;
-    padding: 10px 5px;
-}
+
 .move-icon-2 {
     width: 10%;
 }
